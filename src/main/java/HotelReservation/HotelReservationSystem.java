@@ -1,6 +1,9 @@
 package HotelReservation;
 
+
 import java.util.ArrayList;
+
+
 
 public class HotelReservationSystem {
 
@@ -10,4 +13,6 @@ public class HotelReservationSystem {
            addhotel.add(hotel);
            return addhotel;
        }
+
+
    }
