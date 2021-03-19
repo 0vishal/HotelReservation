@@ -2,20 +2,19 @@ package HotelReservation;
 
 public class HotelReservation {
     String HotelName;
-    public int weekdayrate;
-    public int weekendrate;
+    int Rating;
+    int rate;
 
-
-    public HotelReservation(String HotelName,int weekdayrate, int weekendrate) {
+    public HotelReservation(String HotelName,int Rating, int rate) {
         this.HotelName = HotelName;
-        this.weekdayrate = weekdayrate;
-        this.weekendrate = weekendrate;
+        this.Rating = Rating;
+        this.rate = rate;
     }
 
     @Override
     public String toString() {
         return "HotelReservation { " +
-                "hotelName=" + HotelName +  ", rating=" + weekdayrate +", rate=" + weekendrate +"}";
+                "hotelName=" + HotelName +  ", rating=" + Rating +", rate=" + rate+"}";
     }
 
 }
