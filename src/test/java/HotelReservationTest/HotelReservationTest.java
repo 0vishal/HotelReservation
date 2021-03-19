@@ -23,19 +23,32 @@ public class HotelReservationTest {
         hotelsystem.AddHotel("Ridgewood");
     }
 
-    @Test
-    public void Adddetail() {
-        HotelReservation lakewood = new HotelReservation("Lakewood", 100, 3);
-        HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 4);
-        HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 5);
 
-    }
+        HotelReservation lakewood = new HotelReservation("Lakewood", 100, 120);
+        HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 240);
+        HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 350);
 
+
+l
     @Test
-    public void Testdata() {
+    public void TestData() {
         Assertions.assertEquals("Lakewood","Lakewood");
         Assertions.assertEquals("Bridgewood","Bridgewood");
         Assertions.assertEquals("Ridgewood","Ridgewood");
 
+    }
+
+    @Test
+    public void weekDayRates(){
+        Assertions.assertEquals(100,lakewood.weekendrate);
+        Assertions.assertEquals(200,Bridgewood.weekdayrate);
+        Assertions.assertEquals(300,Ridgewood.weekdayrate);
+    }
+
+    @Test
+    public void weekEndRates(){
+        Assertions.assertEquals(120,lakewood.weekendrate);
+        Assertions.assertEquals(240,Bridgewood.weekendrate);
+        Assertions.assertEquals(350,Ridgewood.weekendrate);
     }
 }
