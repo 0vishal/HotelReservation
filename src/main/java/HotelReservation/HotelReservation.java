@@ -1,7 +1,7 @@
 package HotelReservation;
 
 public class HotelReservation {
-    String HotelName;
+    public String HotelName;
     public int weekdayrate;
     public int weekendrate;
     public int Rating;
