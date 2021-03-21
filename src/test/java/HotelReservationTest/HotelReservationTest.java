@@ -5,13 +5,7 @@ import HotelReservation.HotelReservationSystem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.util.*;
-
-
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 public class HotelReservationTest {
 
@@ -20,43 +14,28 @@ public class HotelReservationTest {
     @BeforeAll
     public void execute() {
         hotelsystem = new HotelReservationSystem();
-
+        hotelsystem.AddHotel(lakewood);
+        hotelsystem.AddHotel(Bridgewood);
+        hotelsystem.AddHotel(Ridgewood);
     }
 
-    @Test
-    public void AddHotel(String lakewood) {
-        hotelsystem.AddHotel("Lakewood");
-        hotelsystem.AddHotel("Bridgewood");
-        hotelsystem.AddHotel("Ridgewood");
-    }
-
-
-        HotelReservation lakewood = new HotelReservation("Lakewood", 100, 120,3);
-        HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 240,4);
-        HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 350,5);
-
+        HotelReservation lakewood = new HotelReservation("Lakewood", 100, 3);
+        HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 4);
+        HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 5);
 
     @Test
     public void TestData() {
-        Assertions.assertEquals("Lakewood","Lakewood");
-        Assertions.assertEquals("Bridgewood","Bridgewood");
-        Assertions.assertEquals("Ridgewood","Ridgewood");
-
+        Assertions.assertEquals("Lakewood", "Lakewood");
+        Assertions.assertEquals("Bridgewood", "Bridgewood");
+        Assertions.assertEquals("Ridgewood", "Ridgewood");
     }
 
     @Test
-    public void weekDayRates(){
-        Assertions.assertEquals(100,lakewood.weekendrate);
-        Assertions.assertEquals(200,Bridgewood.weekdayrate);
-        Assertions.assertEquals(300,Ridgewood.weekdayrate);
+    public void cheapestHotelListTest(){
+        LocalDate date1=LocalDate.of(2020,10,10);
+        LocalDate date2=LocalDate.of(2020,10,11);
+        HotelReservation cheaphotel = HotelReservationSystem.CheapHotelList(date1,date2);
+        Assertions.assertEquals("Lakewood",cheaphotel.HotelName);
     }
-
-    @Test
-    public void weekEndRates(){
-        Assertions.assertEquals(120,lakewood.weekendrate);
-        Assertions.assertEquals(240,Bridgewood.weekendrate);
-        Assertions.assertEquals(350,Ridgewood.weekendrate);
-    }
-
 
 }
