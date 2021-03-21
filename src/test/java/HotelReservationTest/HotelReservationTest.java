@@ -21,9 +21,9 @@ public class HotelReservationTest {
     }
 
 
-    HotelReservation lakewood = new HotelReservation("Lakewood", 100, 120);
-    HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 240);
-    HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 350);
+    HotelReservation lakewood = new HotelReservation("Lakewood", 100, 120,3);
+    HotelReservation Bridgewood = new HotelReservation("Bridgewood", 200, 240,4);
+    HotelReservation Ridgewood = new HotelReservation("Ridgewood", 300, 350,5);
 
 
 
@@ -47,11 +47,6 @@ public class HotelReservationTest {
         Assertions.assertEquals(120,lakewood.weekendrate);
         Assertions.assertEquals(240,Bridgewood.weekendrate);
         Assertions.assertEquals(350,Ridgewood.weekendrate);
-    }
-    @Test
-    public void getCheapestHotel() {
-        Assertions.assertEquals(lakewood,cheapHotel());
-        cheapHotel();
     }
 
 }
