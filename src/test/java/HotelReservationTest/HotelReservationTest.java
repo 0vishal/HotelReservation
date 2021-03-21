@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static HotelReservation.HotelReservationSystem.cheapHotel;
+
 public class HotelReservationTest {
 
     HotelReservationSystem hotelsystem;
@@ -46,4 +48,10 @@ public class HotelReservationTest {
         Assertions.assertEquals(240,Bridgewood.weekendrate);
         Assertions.assertEquals(350,Ridgewood.weekendrate);
     }
+    @Test
+    public void getCheapestHotel() {
+        Assertions.assertEquals(lakewood,cheapHotel());
+        cheapHotel();
+    }
+
 }
