@@ -19,12 +19,5 @@ public class HotelReservationSystem {
         return hotels;
     }
 
-    public static HotelReservation CheapHotelList(LocalDate d1,LocalDate d2) {
-        long days= ChronoUnit.DAYS.between(d1,d2);
-        HotelReservation min= Collections.min(hotels, Comparator.comparingInt(hotelrate->hotelrate.rate));
-        int cheaprate = (int)(min.rate*days);
-        System.out.println( "hotelname" + min.HotelName + "rate" + cheaprate);
-        return min;
 
-    }
 }
