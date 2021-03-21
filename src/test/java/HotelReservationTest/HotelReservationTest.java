@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static HotelReservation.HotelReservationSystem.BestRatedHotel;
+import static HotelReservation.HotelReservationSystem.totalRates;
+
 public class HotelReservationTest {
 
     HotelReservationSystem hotelsystem;
@@ -47,10 +50,10 @@ public class HotelReservationTest {
         Assertions.assertEquals(350,Ridgewood.weekendrate);
     }
 
+
     @Test
-    void cheapestHotelByRatingsTest() {
-        HotelReservation  cheapestHotelByRatings = HotelReservationSystem.cheapestHotelByRating();
-        Assertions.assertEquals(lakewood, cheapestHotelByRatings);
-        System.out.println("Rating of cheap hotel" + cheapestHotelByRatings.HotelName);
+    public void bestRateHotelTest() {
+        Assertions.assertEquals(Ridgewood, BestRatedHotel());
+        System.out.println("Best rated Hotel: " + BestRatedHotel().HotelName + "  Rate:  "  + totalRates(BestRatedHotel()) );
     }
 }
