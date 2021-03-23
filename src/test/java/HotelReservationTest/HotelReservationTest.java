@@ -55,37 +55,28 @@ public class HotelReservationTest {
 
 
     @Test
-    public void bestRateHotelTest() {
+    public void bestRateHotelTest() throws InvalidException {
         Assertions.assertEquals(Ridgewood, BestRatedHotel());
         System.out.println("Best rated Hotel: " + BestRatedHotel().HotelName + "  Rate:  "  + totalRates(BestRatedHotel(), customerType) );
     }
     @Test
-    public void getCheapestHotelByRatesRegular() {
+    public void getCheapestHotelByRatesRegular() throws InvalidException {
         Assertions.assertEquals(lakewood, cheapestHotelByRating(HotelReservation.REWARD_CUSTOMER));
         showCheapHotel(HotelReservation.REWARD_CUSTOMER);
 
     }
 
     @Test
-    public void getCheapestHotelByRatingsRegularTest() {
+    public void getCheapestHotelByRatingsRegularTest() throws InvalidException {
         HotelReservation cheapestHotelByRatings = HotelReservationSystem.cheapestHotelByRating(HotelReservation.REWARD_CUSTOMER);
         Assertions.assertEquals(Bridgewood, cheapestHotelByRatings);
         System.out.println("Cheapest hotel by rating: " + cheapestHotelByRatings.HotelName;
     }
 
     @Test
-    public void getBestRatedHotelRegularTest() {
+    public void getBestRatedHotelRegularTest() throws InvalidException {
         Assertions.assertEquals(Ridgewood, BestRatedHotel());
         System.out.println(MessageFormat.format("Best rated Hotel: {0}  total Rate:  {1}", BestRatedHotel().HotelName, totalRates(BestRatedHotel(), HotelReservation.REWARD_CUSTOMER)));
     }
-    @Test
-    void cheapestHotelCheckValidationInputTest()  {
 
-        Assertions.assertThrows(InvalidException.class, new Executable()){
-            @Override
-            public void execute() throws Throwable {
-                Date("2020-09-11", "2020-13-13");
-            }
-        }
-}
 }
