@@ -17,8 +17,17 @@ public class HotelReservationSystem {
         return hotels;
     }
 
-
-    public static TreeMap<Long, ArrayList<HotelReservation>> weekEndWeekDaysRates(int customerType){
+    public static void Date(String s1, String s2) throws InvalidException {
+        String dateFormat;
+        dateFormat = "^([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])$";
+        if (s1.matches(dateFormat) && s2.matches(dateFormat)) {
+            date1 = LocalDate.parse(s1);
+            date2 = LocalDate.parse(s2);
+        } else {
+            throw new InvalidException();
+        }
+    }
+    public static TreeMap<Long, ArrayList<HotelReservation>> weekEndWeekDaysRates(int customerType) throws InvalidException {
         TreeMap<Long, ArrayList<HotelReservation>> hotelRates = new TreeMap<>();
         for (HotelReservation hotel: hotels){
             long rate = totalRates(hotel, customerType);
@@ -33,7 +42,7 @@ public class HotelReservationSystem {
         return hotelRates;
 
     }
-    public static void showCheapHotel(int customerType ){
+    public static void showCheapHotel(int customerType ) throws InvalidException {
 
         TreeMap<Long, ArrayList<HotelReservation>> hotelRates = weekEndWeekDaysRates(customerType);
         System.out.print("\ncheapest hotels are " );
@@ -55,7 +64,7 @@ public class HotelReservationSystem {
         System.out.println("cheapest hotels are with rate: "+ minRate);
     }//sCH
 
-    public static HotelReservation cheapestHotelByRating(int customerType){
+    public static HotelReservation cheapestHotelByRating(int customerType) throws InvalidException {
 
         TreeMap<Long, ArrayList<HotelReservation>> hotelRates = weekEndWeekDaysRates(customerType);
         boolean seen = false;
@@ -79,7 +88,7 @@ public class HotelReservationSystem {
 
     }
 
-    public static long totalRates(int customerType){
+    public static long totalRates(int customerType) throws InvalidException {
         long rate = 0;
         LocalDate d = date1;
         d = d.plusDays(1);

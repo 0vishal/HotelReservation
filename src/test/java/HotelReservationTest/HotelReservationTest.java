@@ -5,10 +5,12 @@ import HotelReservation.HotelReservationSystem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.text.MessageFormat;
 
 import static HotelReservation.HotelReservationSystem.*;
+import static jdk.nashorn.internal.objects.NativeDate.setDate;
 
 public class HotelReservationTest {
 
@@ -76,4 +78,14 @@ public class HotelReservationTest {
         Assertions.assertEquals(Ridgewood, BestRatedHotel());
         System.out.println(MessageFormat.format("Best rated Hotel: {0}  total Rate:  {1}", BestRatedHotel().HotelName, totalRates(BestRatedHotel(), HotelReservation.REWARD_CUSTOMER)));
     }
+    @Test
+    void cheapestHotelCheckValidationInputTest()  {
+
+        Assertions.assertThrows(InvalidException.class, new Executable()){
+            @Override
+            public void execute() throws Throwable {
+                Date("2020-09-11", "2020-13-13");
+            }
+        }
+}
 }
